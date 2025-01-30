@@ -1,0 +1,454 @@
+{
+	"info": {
+		"_postman_id": "d3f09d80-6358-4721-ae7b-01631e5690a4",
+		"name": "DemystCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10218772",
+		"_collection_link": "https://martian-capsule-539259.postman.co/workspace/3a0e9733-0ebd-40d0-bca6-09d68273c311/collection/10218772-d3f09d80-6358-4721-ae7b-01631e5690a4?action=share&source=collection_link&creator=10218772"
+	},
+	"item": [
+		{
+			"name": "Invalid email type",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"message for invaild user email\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(\"Invalid Email or password.\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "cookie",
+						"value": "_ga=GA1.1.661417688.1738129714; _zitok=f7bf757dcec6646e8e871738129719; monster=me+hungry; AWSALB=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; AWSALBCORS=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; _manta_session=QnZEaFM2RWJGQnlEcmFldkc4Q0NNYVM2K3NzSldqa1FKQW5TOUtsNElHSmdMVENXRVM4TXZHRmZVZW9iTnJHSVpsaGgrYk5qTFJLRnVPSGw0ZWVQbUJFRlR3UU5TZGY1anJiQWRzdFhpMXllWTRKbHUwbEFGMXdNODNUVU5oRUgtLWhpUStZQUdvK3pjQVU5elE1R0ZyOVE9PQ%3D%3D--79dac19a36d78b467aaa7c1dc5b4fea5861b2f2d; _ga_76XZ5L21DD=GS1.1.1738220786.5.1.1738220986.60.0.0"
+					},
+					{
+						"key": "origin",
+						"value": "https://demyst.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://demyst.com/login"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\"email\":\"test\",\"password\":\"Test@123\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/console/users/sign_in",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"console",
+						"users",
+						"sign_in"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://demyst.com/console/users/sign_in' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'cookie: _ga=GA1.1.661417688.1738129714; _zitok=f7bf757dcec6646e8e871738129719; monster=me+hungry; AWSALB=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; AWSALBCORS=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; _manta_session=QnZEaFM2RWJGQnlEcmFldkc4Q0NNYVM2K3NzSldqa1FKQW5TOUtsNElHSmdMVENXRVM4TXZHRmZVZW9iTnJHSVpsaGgrYk5qTFJLRnVPSGw0ZWVQbUJFRlR3UU5TZGY1anJiQWRzdFhpMXllWTRKbHUwbEFGMXdNODNUVU5oRUgtLWhpUStZQUdvK3pjQVU5elE1R0ZyOVE9PQ%3D%3D--79dac19a36d78b467aaa7c1dc5b4fea5861b2f2d; _ga_76XZ5L21DD=GS1.1.1738220786.5.1.1738220986.60.0.0' \\\r\n  -H 'origin: https://demyst.com' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://demyst.com/login' \\\r\n  -H 'sec-ch-ua: \"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"user\":{\"email\":\"test@gmail.com\",\"password\":\"test\",\"code\":null}}'"
+			},
+			"response": []
+		},
+		{
+			"name": "valid email and empty password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"message for invaild user email\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(\"Invalid Email or password.\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "cookie",
+						"value": "_ga=GA1.1.661417688.1738129714; _zitok=f7bf757dcec6646e8e871738129719; monster=me+hungry; AWSALB=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; AWSALBCORS=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; _manta_session=QnZEaFM2RWJGQnlEcmFldkc4Q0NNYVM2K3NzSldqa1FKQW5TOUtsNElHSmdMVENXRVM4TXZHRmZVZW9iTnJHSVpsaGgrYk5qTFJLRnVPSGw0ZWVQbUJFRlR3UU5TZGY1anJiQWRzdFhpMXllWTRKbHUwbEFGMXdNODNUVU5oRUgtLWhpUStZQUdvK3pjQVU5elE1R0ZyOVE9PQ%3D%3D--79dac19a36d78b467aaa7c1dc5b4fea5861b2f2d; _ga_76XZ5L21DD=GS1.1.1738220786.5.1.1738220986.60.0.0"
+					},
+					{
+						"key": "origin",
+						"value": "https://demyst.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://demyst.com/login"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\"email\":\"test@gmail.com\",\"password\":\"\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/console/users/sign_in",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"console",
+						"users",
+						"sign_in"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://demyst.com/console/users/sign_in' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'cookie: _ga=GA1.1.661417688.1738129714; _zitok=f7bf757dcec6646e8e871738129719; monster=me+hungry; AWSALB=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; AWSALBCORS=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; _manta_session=QnZEaFM2RWJGQnlEcmFldkc4Q0NNYVM2K3NzSldqa1FKQW5TOUtsNElHSmdMVENXRVM4TXZHRmZVZW9iTnJHSVpsaGgrYk5qTFJLRnVPSGw0ZWVQbUJFRlR3UU5TZGY1anJiQWRzdFhpMXllWTRKbHUwbEFGMXdNODNUVU5oRUgtLWhpUStZQUdvK3pjQVU5elE1R0ZyOVE9PQ%3D%3D--79dac19a36d78b467aaa7c1dc5b4fea5861b2f2d; _ga_76XZ5L21DD=GS1.1.1738220786.5.1.1738220986.60.0.0' \\\r\n  -H 'origin: https://demyst.com' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://demyst.com/login' \\\r\n  -H 'sec-ch-ua: \"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"user\":{\"email\":\"test@gmail.com\",\"password\":\"test\",\"code\":null}}'"
+			},
+			"response": []
+		},
+		{
+			"name": "empty email and password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"message for invaild user email\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(\"You need to sign in or sign up before continuing.\");\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "cookie",
+						"value": "_ga=GA1.1.661417688.1738129714; _zitok=f7bf757dcec6646e8e871738129719; monster=me+hungry; AWSALB=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; AWSALBCORS=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; _manta_session=QnZEaFM2RWJGQnlEcmFldkc4Q0NNYVM2K3NzSldqa1FKQW5TOUtsNElHSmdMVENXRVM4TXZHRmZVZW9iTnJHSVpsaGgrYk5qTFJLRnVPSGw0ZWVQbUJFRlR3UU5TZGY1anJiQWRzdFhpMXllWTRKbHUwbEFGMXdNODNUVU5oRUgtLWhpUStZQUdvK3pjQVU5elE1R0ZyOVE9PQ%3D%3D--79dac19a36d78b467aaa7c1dc5b4fea5861b2f2d; _ga_76XZ5L21DD=GS1.1.1738220786.5.1.1738220986.60.0.0"
+					},
+					{
+						"key": "origin",
+						"value": "https://demyst.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://demyst.com/login"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\"email\":\"\",\"password\":\"\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/console/users/sign_in",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"console",
+						"users",
+						"sign_in"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://demyst.com/console/users/sign_in' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'cookie: _ga=GA1.1.661417688.1738129714; _zitok=f7bf757dcec6646e8e871738129719; monster=me+hungry; AWSALB=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; AWSALBCORS=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; _manta_session=QnZEaFM2RWJGQnlEcmFldkc4Q0NNYVM2K3NzSldqa1FKQW5TOUtsNElHSmdMVENXRVM4TXZHRmZVZW9iTnJHSVpsaGgrYk5qTFJLRnVPSGw0ZWVQbUJFRlR3UU5TZGY1anJiQWRzdFhpMXllWTRKbHUwbEFGMXdNODNUVU5oRUgtLWhpUStZQUdvK3pjQVU5elE1R0ZyOVE9PQ%3D%3D--79dac19a36d78b467aaa7c1dc5b4fea5861b2f2d; _ga_76XZ5L21DD=GS1.1.1738220786.5.1.1738220986.60.0.0' \\\r\n  -H 'origin: https://demyst.com' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://demyst.com/login' \\\r\n  -H 'sec-ch-ua: \"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"user\":{\"email\":\"test@gmail.com\",\"password\":\"test\",\"code\":null}}'"
+			},
+			"response": []
+		},
+		{
+			"name": "empty password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 401\", function () {\r",
+							"    pm.response.to.have.status(401);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 2000ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"});\r",
+							"var jsonData = pm.response.json();\r",
+							"pm.test(\"message for invaild user email\", function () {\r",
+							"    pm.expect(jsonData.error).to.eql(\"Invalid Email or password.\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "application/json"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US,en;q=0.9"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "cookie",
+						"value": "_ga=GA1.1.661417688.1738129714; _zitok=f7bf757dcec6646e8e871738129719; monster=me+hungry; AWSALB=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; AWSALBCORS=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; _manta_session=QnZEaFM2RWJGQnlEcmFldkc4Q0NNYVM2K3NzSldqa1FKQW5TOUtsNElHSmdMVENXRVM4TXZHRmZVZW9iTnJHSVpsaGgrYk5qTFJLRnVPSGw0ZWVQbUJFRlR3UU5TZGY1anJiQWRzdFhpMXllWTRKbHUwbEFGMXdNODNUVU5oRUgtLWhpUStZQUdvK3pjQVU5elE1R0ZyOVE9PQ%3D%3D--79dac19a36d78b467aaa7c1dc5b4fea5861b2f2d; _ga_76XZ5L21DD=GS1.1.1738220786.5.1.1738220986.60.0.0"
+					},
+					{
+						"key": "origin",
+						"value": "https://demyst.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://demyst.com/login"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"Windows\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-origin"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"user\":{\"email\":\"test@gmail.com\",\"password\":\"\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/console/users/sign_in",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"console",
+						"users",
+						"sign_in"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://demyst.com/console/users/sign_in' \\\r\n  -H 'accept: application/json' \\\r\n  -H 'accept-language: en-US,en;q=0.9' \\\r\n  -H 'content-type: application/json' \\\r\n  -H 'cookie: _ga=GA1.1.661417688.1738129714; _zitok=f7bf757dcec6646e8e871738129719; monster=me+hungry; AWSALB=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; AWSALBCORS=dpm+VxFeEF7400lMs2d1NkuUiIrjv1XVdONJWT6BcvfLnLx5KlP5+vig2yjoylfp3M4iUfk874MinibWQUq8ri+l51YSxx3B1AruQLz394zyqItZBo4pFaG0jtfk; _manta_session=QnZEaFM2RWJGQnlEcmFldkc4Q0NNYVM2K3NzSldqa1FKQW5TOUtsNElHSmdMVENXRVM4TXZHRmZVZW9iTnJHSVpsaGgrYk5qTFJLRnVPSGw0ZWVQbUJFRlR3UU5TZGY1anJiQWRzdFhpMXllWTRKbHUwbEFGMXdNODNUVU5oRUgtLWhpUStZQUdvK3pjQVU5elE1R0ZyOVE9PQ%3D%3D--79dac19a36d78b467aaa7c1dc5b4fea5861b2f2d; _ga_76XZ5L21DD=GS1.1.1738220786.5.1.1738220986.60.0.0' \\\r\n  -H 'origin: https://demyst.com' \\\r\n  -H 'priority: u=1, i' \\\r\n  -H 'referer: https://demyst.com/login' \\\r\n  -H 'sec-ch-ua: \"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\"' \\\r\n  -H 'sec-ch-ua-mobile: ?0' \\\r\n  -H 'sec-ch-ua-platform: \"Windows\"' \\\r\n  -H 'sec-fetch-dest: empty' \\\r\n  -H 'sec-fetch-mode: cors' \\\r\n  -H 'sec-fetch-site: same-origin' \\\r\n  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36' \\\r\n  --data-raw '{\"user\":{\"email\":\"test@gmail.com\",\"password\":\"test\",\"code\":null}}'"
+			},
+			"response": []
+		}
+	]
+}
